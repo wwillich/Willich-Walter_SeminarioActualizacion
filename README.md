@@ -17,14 +17,14 @@ La Clase 01 no tuvo entregable técnico, por lo que el índice comienza en la Cl
 | 02 | Preparación del entorno de desarrollo: Python, Git, entorno virtual y aplicación mínima en Gradio | [Clase_02](Clase_02/) |
 | 03 | GitHub, Codespaces y control de versiones: tres situaciones problema con Git | [Clase_03](Clase_03/) |
 | 04 | Interfaz con Gradio Blocks: componentes nuevos, función propia y enlace público con `share=True` | [Clase_04](Clase_04/) |
-| 05 | — | Pendiente |
+| 05 | Deploy en Render de la aplicación en Gradio y de su versión equivalente en Streamlit | [Clase_05](Clase_05/) |
 
 ## Estado actual
 
 - [x] Clase 02 — Entorno de desarrollo
 - [x] Clase 03 — GitHub y control de versiones
 - [x] Clase 04 — Interfaz con Gradio Blocks
-- [ ] Clase 05
+- [x] Clase 05 — Deploy en Render (Gradio y Streamlit)
 
 ## Requisitos generales
 
