@@ -12,8 +12,8 @@ En esta clase publicamos la aplicación en un servidor real y comprobamos que el
 
 | Versión | Enlace | Qué hace |
 |---|---|---|
-| Gradio (Blocks) | *(pendiente)* | Dos pestañas: **Saludo** (recibe un nombre y devuelve un saludo al presionar un botón) y **Conversor de temperatura** (convierte °C a Fahrenheit o Kelvin con un slider y un selector de unidad) |
-| Streamlit | *(pendiente)* | Las mismas dos funciones en una versión mínima: saludo con botón y conversor que actualiza el resultado automáticamente al mover el slider |
+| Gradio (Blocks) | [willich-walter-clase-05-gradio.onrender.com](https://willich-walter-clase-05-gradio.onrender.com/) | Dos pestañas: **Saludo** (recibe un nombre y devuelve un saludo al presionar un botón) y **Conversor de temperatura** (convierte °C a Fahrenheit o Kelvin con un slider y un selector de unidad) |
+| Streamlit | [willich-walter-clase-05-streamlit.onrender.com](https://willich-walter-clase-05-streamlit.onrender.com/) | Las mismas dos funciones en una versión mínima: saludo con botón y conversor que actualiza el resultado automáticamente al mover el slider |
 
 > **Nota:** ambas aplicaciones usan el plan gratuito de Render, que suspende el servicio después de 15 minutos sin tráfico. Si la aplicación estaba inactiva, el primer acceso puede demorar alrededor de un minuto mientras el servidor se reinicia.
 
@@ -21,7 +21,7 @@ En esta clase publicamos la aplicación en un servidor real y comprobamos que el
 
 1. **Configuración del puerto:** en Gradio, el host y el puerto se definen en el código, dentro de `demo.launch(server_name="0.0.0.0", server_port=...)`, leyendo la variable `PORT` que asigna Render. En Streamlit, el código no cambia: esos mismos valores se pasan como parámetros en el comando de inicio.
 2. **Modelo de ejecución:** Gradio conecta cada función a sus componentes mediante eventos (`.click()`), mientras que Streamlit vuelve a ejecutar el script completo ante cada interacción. Por eso, en la versión de Streamlit el conversor se actualiza sin necesidad de un botón.
-3. **Procedimiento de deploy:** fue idéntico en ambos casos (repositorio, carpeta raíz, comando de build y comando de inicio). La única diferencia fue el comando de inicio.
+3. **Procedimiento de deploy:** fue idéntico en ambos casos (repositorio, carpeta raíz, comando de build y comando de inicio). La única diferencia fue el comando de inicio, y fue justamente el punto donde surgió un error: el primer deploy de Streamlit se configuró con `python app.py`. Con ese comando, Streamlit ejecuta el script una sola vez sin levantar el servidor web (advertencias `missing ScriptRunContext`) y Render marca el deploy como fallido (`Application exited early`). Se resolvió reemplazándolo por `streamlit run`.
 
 ## Contenido de la carpeta
 
@@ -38,7 +38,7 @@ Cada aplicación tiene su propio `requirements.txt` con solo lo que necesita. A 
 
 ## Requisitos
 
-- Python 3.10 o superior (probado con Python 3.13)
+- Python 3.10 o superior (probado localmente con Python 3.13; Render utilizó Python 3.14)
 - Cuenta en [Render](https://render.com) vinculada a GitHub (solo para el deploy)
 
 ## Cómo reproducirlo
