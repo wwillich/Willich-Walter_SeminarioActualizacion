@@ -49,11 +49,21 @@ Al iniciar, la consola muestra dos direcciones:
 - **Local URL** (`http://127.0.0.1:7860`): accesible solo desde el equipo donde se ejecuta.
 - **Public URL** (`https://xxxxxxxx.gradio.live`): el enlace temporal generado por `share=True`, accesible desde cualquier dispositivo.
 
-> **Nota:** el enlace público funciona solo mientras la aplicación siga en ejecución y caduca después de un tiempo. Cualquier persona que lo tenga puede usar la aplicación, por lo que conviene compartirlo solo en el aula virtual y no publicarlo en el repositorio.
+### Características del enlace público
+
+| Característica | Detalle |
+|---|---|
+| Formato | `https://<identificador>.gradio.live`, con un identificador aleatorio distinto en cada ejecución |
+| Vigencia | Hasta **una semana** desde que se genera |
+| Disponibilidad | Solo mientras `app.py` siga en ejecución en el equipo local; al cerrarla, el enlace deja de responder |
+| Funcionamiento | Gradio crea un túnel entre sus servidores y el equipo local: la aplicación no se aloja en la nube, sigue corriendo en la computadora propia |
+| Acceso | Cualquier persona con el enlace puede usar la aplicación, sin necesidad de iniciar sesión |
+
+> **Nota:** el enlace generado para esta clase se entregó en la Tarea del aula virtual. No se incluye en este README porque caduca y dejaría de funcionar, y porque mientras está activo apunta al equipo local. Para obtener uno nuevo, basta con volver a ejecutar `python app.py`.
 
 ## Resultado esperado
 
 - La interfaz muestra dos pestañas: **Saludo** y **Conversor de temperatura**.
 - **Saludo:** al ingresar un nombre y presionar *Saludar*, responde `Hola, <nombre>!`.
 - **Conversor:** con el slider en 25 °C y *Fahrenheit* seleccionado, el resultado es **77**. Con 100 °C y *Kelvin*, el resultado es **373.15**.
-- El enlace `gradio.live` abre la misma aplicación desde otro dispositivo (por ejemplo, un celular).
+- La consola muestra una **Public URL** con el formato `https://<identificador>.gradio.live`, que abre la misma aplicación desde otro dispositivo (por ejemplo, un celular) mientras la ejecución local siga activa.
