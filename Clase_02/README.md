@@ -2,31 +2,31 @@
 
 ## Objetivo
 
-En esta clase dejé armado el entorno con el que voy a trabajar el resto del proyecto:
+En esta clase configuramos el entorno de trabajo que se utiliza en el resto del proyecto:
 
-1. Verifiqué que Python, VS Code y Git funcionan, y que Git está configurado con mi nombre y mail.
-2. Creé el proyecto con `app.py` y `README.md`.
-3. Armé el entorno virtual `.venv`, lo activé, comparé las rutas del intérprete y lo seleccioné en VS Code.
-4. Instalé Gradio en el entorno y generé el `requirements.txt`.
-5. Inicialicé el repo, creé el `.gitignore` e hice el primer commit.
+1. Verificamos que Python, VS Code y Git estén instalados y que Git tenga configurados el nombre y el correo del autor.
+2. Creamos el proyecto con `app.py` y `README.md`.
+3. Generamos el entorno virtual `.venv`, lo activamos, comparamos las rutas del intérprete y lo seleccionamos en VS Code.
+4. Instalamos Gradio dentro del entorno y registramos las dependencias en `requirements.txt`.
+5. Inicializamos el repositorio, creamos el `.gitignore` y registramos el primer commit.
 
 ## Contenido de la carpeta
 
-| Archivo | Qué tiene | ¿Se versiona? |
+| Archivo | Descripción | ¿Se versiona? |
 |---|---|---|
-| `app.py` | App mínima en Gradio: le pasás un nombre y te saluda | Sí |
-| `requirements.txt` | Dependencias del entorno, sacadas con `pip freeze` | Sí |
-| `.gitignore` | Deja afuera `.venv/`, `__pycache__/` y `.gradio/` | Sí |
+| `app.py` | Aplicación mínima en Gradio: recibe un nombre y devuelve un saludo | Sí |
+| `requirements.txt` | Dependencias del entorno, generadas con `pip freeze` | Sí |
+| `.gitignore` | Excluye `.venv/`, `__pycache__/` y `.gradio/` | Sí |
 | `README.md` | Este archivo | Sí |
 | `.venv/` | Entorno virtual local | No |
 
 ## Requisitos
 
-- Python 3.10 o superior (yo usé 3.13)
+- Python 3.10 o superior (probado con Python 3.13)
 - Git
 - VS Code con la extensión de Python
 
-Para chequear que está todo:
+Para verificar la instalación:
 
 ```powershell
 python --version
@@ -35,16 +35,16 @@ git config user.name
 git config user.email
 ```
 
-Si Git no tiene nombre o mail configurados:
+Si Git no tiene configurados el nombre o el correo:
 
 ```powershell
-git config --global user.name "Tu Nombre"
-git config --global user.email "tu@email.com"
+git config --global user.name "Nombre Apellido"
+git config --global user.email "correo@ejemplo.com"
 ```
 
 ## Cómo reproducirlo
 
-En PowerShell, parado en la carpeta `Clase_02`:
+Desde PowerShell, en la carpeta `Clase_02`:
 
 ```powershell
 # 1. Crear el entorno virtual
@@ -53,23 +53,23 @@ python -m venv .venv
 # 2. Activarlo
 .\.venv\Scripts\Activate.ps1
 
-# 3. Comparar rutas: con el entorno activo, python tiene que apuntar a .venv
+# 3. Comparar rutas: con el entorno activo, el intérprete debe apuntar a .venv
 (Get-Command python).Source
 python -c "import sys; print(sys.executable)"
 
 # 4. Instalar las dependencias
 pip install -r requirements.txt
 
-# 5. Levantar la app
+# 5. Ejecutar la aplicación
 python app.py
 ```
 
-> Si PowerShell no te deja activar el entorno, corré esto una sola vez:
+> **Nota:** si PowerShell bloquea la activación del entorno virtual, ejecutar una única vez:
 > `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
 
 Para seleccionar el intérprete en VS Code: `Ctrl+Shift+P` → **Python: Select Interpreter** → `Clase_02\.venv\Scripts\python.exe`.
 
-El `requirements.txt` lo generé así:
+El archivo `requirements.txt` se generó de la siguiente manera:
 
 ```powershell
 pip install gradio
@@ -79,6 +79,6 @@ pip freeze > requirements.txt
 ## Resultado esperado
 
 - Con el entorno activo, `python` apunta a `Clase_02\.venv\Scripts\python.exe`.
-- `python app.py` levanta la interfaz en `http://127.0.0.1:7860`.
-- Si ponés un nombre, responde `Hola, <nombre>!`. Si lo dejás vacío, responde `Hola!`.
-- `git status` no muestra `.venv/`, porque está en el `.gitignore`.
+- `python app.py` inicia la interfaz en `http://127.0.0.1:7860`.
+- Al ingresar un nombre, la aplicación responde `Hola, <nombre>!`. Si el campo queda vacío, responde `Hola!`.
+- `git status` no muestra la carpeta `.venv/`, ya que está excluida en el `.gitignore`.

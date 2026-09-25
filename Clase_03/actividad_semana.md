@@ -1,15 +1,15 @@
 # Actividad de la semana — Clase 03
 
-Explicación de las 3 situaciones problema, tal como la subí al aula virtual.
+Explicación de las tres situaciones problema trabajadas en clase, tal como se entregó en el aula virtual.
 
 ## 1. README duplicado
 
-Creé el repo en GitHub con el README tildado y, por otro lado, armé un repo local con `git init` y su propio README. Al conectarlos y hacer `git push`, Git lo rechazó: el remoto ya tenía un commit que yo no tenía, y las dos historias no tenían nada en común. Lo resolví con `git pull origin main --allow-unrelated-histories`, que une las dos historias. Como los dos README chocaban, me quedé con una sola versión, hice el commit y recién ahí pude pushear.
+Creamos el repositorio en GitHub con la opción "Add a README file" activada y, por separado, inicializamos un repositorio local con `git init` y un README propio. Al vincularlos y ejecutar `git push`, Git rechazó el envío: el remoto contenía un commit inexistente en el repositorio local, y ambas historias no compartían ningún punto de origen. Lo resolvimos con `git pull origin main --allow-unrelated-histories`, que permite unificar historias independientes. Como los dos README entraban en conflicto, conservamos una única versión, registramos el commit de fusión y recién entonces el `git push` se completó correctamente.
 
 ## 2. Carpeta sin ignorar
 
-Subí la carpeta `datos_prueba` sin tenerla en el `.gitignore`. Agregarla después no alcanza, porque el `.gitignore` solo afecta a los archivos que Git todavía no sigue, y esta carpeta ya estaba trackeada. La solución fue `git rm -r --cached datos_prueba`, que la saca del repo pero no la borra de mi compu. Después hice commit, push y dejé la carpeta en el `.gitignore` para que no se vuelva a subir.
+La carpeta `datos_prueba` se incluyó en un commit y se envió a GitHub sin estar declarada en el `.gitignore`. Agregarla después no alcanza, porque el `.gitignore` solo afecta a los archivos que Git todavía no tiene bajo seguimiento, y esta carpeta ya estaba versionada. La solución fue `git rm -r --cached datos_prueba`, que la quita del índice del repositorio sin eliminarla del disco local. Luego registramos el cambio con un commit, lo enviamos con `git push` y dejamos la carpeta declarada en el `.gitignore` para evitar que vuelva a incluirse.
 
 ## 3. Ramas master / main
 
-Mi Git local tenía configurado `master` como rama por defecto, y GitHub usa `main`. Al hacer `git push -u origin master`, en GitHub apareció una rama `master` que no coincidía con la principal que esperaba. Lo resolví renombrando la rama local con `git branch -m master main`, subiendo `main` y borrando `master` del remoto con `git push origin --delete master`. Para que no vuelva a pasar, dejé `git config --global init.defaultBranch main`.
+La configuración local de Git tenía `master` como rama por defecto, mientras que GitHub utiliza `main`. Al ejecutar `git push -u origin master`, en el repositorio remoto se creó una rama `master` que no coincidía con la rama principal esperada. Lo resolvimos renombrando la rama local con `git branch -m master main`, enviando `main` al remoto y eliminando la rama `master` con `git push origin --delete master`. Para evitar que se repita, configuramos `git config --global init.defaultBranch main`.

@@ -1,5 +1,5 @@
 # Reproduce las 3 situaciones problema de la Clase 03 sin tocar GitHub.
-# Cada "remoto" es un repo bare en una carpeta temporal, que hace de GitHub.
+# Cada repositorio remoto se simula con un repositorio bare en una carpeta temporal.
 # Uso: .\reproducir_situaciones.ps1  (o con -Situacion 1, 2 o 3)
 
 param([ValidateSet(0, 1, 2, 3)][int]$Situacion = 0)
@@ -17,13 +17,13 @@ function Situacion1 {
     $remoto = "$base\s1_remoto.git"
     git init -q --bare -b main $remoto
 
-    Paso "GitHub crea el repo CON README (simulado con un clon que sube un README)"
+    Paso "Se crea el repositorio remoto CON README (simula la opcion de GitHub)"
     git clone -q $remoto "$base\s1_github" 2>$null
     Set-Location "$base\s1_github"
-    "# Repo de prueba (README creado por GitHub)" | Out-File -Encoding utf8 README.md
+    "# Repositorio de prueba (README creado por GitHub)" | Out-File -Encoding utf8 README.md
     git add README.md; git commit -q -m "Initial commit"; git push -q origin main
 
-    Paso "Aparte, un repo local nuevo con git init y su propio README"
+    Paso "Por separado, se inicializa un repositorio local con su propio README"
     New-Item -ItemType Directory "$base\s1_local" | Out-Null
     Set-Location "$base\s1_local"
     git init -q -b main
@@ -31,16 +31,16 @@ function Situacion1 {
     git add README.md; git commit -q -m "Primer commit local"
     git remote add origin $remoto
 
-    Paso "git push -> lo rechaza: el remoto tiene un commit que yo no tengo"
+    Paso "git push -> rechazado: el remoto contiene un commit inexistente en el repositorio local"
     git push origin main
 
-    Paso "git pull sin la opcion -> se niega a unir historias que no tienen nada en comun"
+    Paso "git pull sin la opcion -> Git no unifica historias sin un origen comun"
     git pull --no-rebase origin main
 
     Paso "Solucion: git pull con --allow-unrelated-histories -> conflicto en README.md"
     git pull --no-rebase origin main --allow-unrelated-histories
 
-    Paso "Resuelvo el conflicto quedandome con un solo README y subo"
+    Paso "Se resuelve el conflicto conservando un unico README y se envian los cambios"
     "# Mi proyecto`n`nREADME unificado despues de resolver el conflicto." | Out-File -Encoding utf8 README.md
     git add README.md; git commit -q -m "Unifica README local y remoto"
     git push origin main
@@ -57,24 +57,24 @@ function Situacion2 {
     git init -q -b main
     git remote add origin $remoto
 
-    Paso "Creo datos_prueba/ y la subo SIN ponerla en el .gitignore"
+    Paso "Se versiona datos_prueba/ SIN declararla en el .gitignore"
     New-Item -ItemType Directory datos_prueba | Out-Null
     "id,valor`n1,10" | Out-File -Encoding utf8 datos_prueba\datos.csv
-    git add .; git commit -q -m "Sube datos_prueba por error"; git push -q -u origin main
+    git add .; git commit -q -m "Agrega datos_prueba por error"; git push -q -u origin main
     Write-Host "Archivos en el remoto:"; git ls-tree -r --name-only origin/main
 
-    Paso "Agrego datos_prueba/ al .gitignore y cambio el archivo: Git lo sigue viendo"
+    Paso "Se declara datos_prueba/ en el .gitignore y se modifica el archivo: Git lo sigue detectando"
     "datos_prueba/" | Out-File -Encoding utf8 .gitignore
     "id,valor`n1,10`n2,20" | Out-File -Encoding utf8 datos_prueba\datos.csv
     git status --short
 
-    Paso "Solucion: git rm -r --cached (lo saca del repo, no de mi disco)"
+    Paso "Solucion: git rm -r --cached (lo quita del repositorio, no del disco local)"
     git rm -r -q --cached datos_prueba
     git add .gitignore
-    git commit -q -m "Deja de trackear datos_prueba"
+    git commit -q -m "Deja de versionar datos_prueba"
     git push -q
     Write-Host "Archivos en el remoto:"; git ls-tree -r --name-only origin/main
-    Write-Host ("Sigue en mi disco: " + (Test-Path datos_prueba\datos.csv))
+    Write-Host ("Se conserva en el disco local: " + (Test-Path datos_prueba\datos.csv))
 }
 
 # ---------------------------------------------------------------------------
@@ -83,9 +83,9 @@ function Situacion3 {
     $remoto = "$base\s3_remoto.git"
     git init -q --bare -b main $remoto
 
-    Paso "Repo local creado con master como rama por defecto"
+    Paso "Repositorio local creado con master como rama por defecto"
     # En clase se hizo con: git config --global init.defaultBranch master
-    # Aca uso -b master para no cambiar la configuracion global
+    # Aqui se usa -b master para no modificar la configuracion global
     New-Item -ItemType Directory "$base\s3_local" | Out-Null
     Set-Location "$base\s3_local"
     git init -q -b master
@@ -93,11 +93,11 @@ function Situacion3 {
     git add .; git commit -q -m "Commit inicial"
     git remote add origin $remoto
 
-    Paso "git push -u origin master -> en el remoto aparece una rama master"
+    Paso "git push -u origin master -> se crea la rama master en el remoto"
     git push -q -u origin master
     git ls-remote --heads origin
 
-    Paso "Solucion: renombro a main, subo main y borro master del remoto"
+    Paso "Solucion: se renombra la rama a main, se envia main y se elimina master del remoto"
     git branch -m master main
     git push -q -u origin main
     git push -q origin --delete master
@@ -114,4 +114,4 @@ try {
 } finally {
     Set-Location $inicio
 }
-Write-Host "`nListo. Los repos de prueba quedaron en $base" -ForegroundColor Green
+Write-Host "`nFinalizado. Los repositorios de prueba se encuentran en $base" -ForegroundColor Green
