@@ -1,44 +1,45 @@
-# Seminario de Actualización
+# Seminario de Actualización — Portfolio del proyecto integrador
 
-Proyecto de la materia **Seminario de Actualización** (5to cuatrimestre, Tecnicatura Superior en Ciencia de Datos e Inteligencia Artificial - TSCDIA).
+**Autor:** Walter Willich
+**Carrera:** Tecnicatura Superior en Ciencia de Datos e Inteligencia Artificial (IFTS N.º 18), 5.º cuatrimestre
+
+## Resumen
+
+Este repositorio reúne los entregables técnicos del Seminario de Actualización, organizados por clase. Cada carpeta es autocontenida: tiene su propio README con el objetivo, los requisitos y los pasos para reproducir lo que se hizo.
+
+La Clase 01 no tuvo entregable técnico, por eso el índice empieza en la Clase 02.
+
+## Índice
+
+| Clase | Tema | Carpeta |
+|---|---|---|
+| 02 | Preparación del entorno de desarrollo: Python, Git, entorno virtual y app mínima en Gradio | [Clase_02](Clase_02/) |
+| 03 | — | Pendiente |
+| 04 | — | Pendiente |
+| 05 | — | Pendiente |
 
 ## Estado actual
 
-Proyecto en etapa inicial. Por el momento incluye una app mínima construida con [Gradio](https://www.gradio.app/) a modo de punto de partida.
+- [x] Clase 02 — Entorno de desarrollo
+- [ ] Clase 03
+- [ ] Clase 04
+- [ ] Clase 05
 
-## Estructura del proyecto
+## Requisitos generales
 
-```
-.
-├── app.py              # App de ejemplo en Gradio
-├── requirements.txt    # Dependencias del proyecto
-└── README.md
-```
+- Python 3.10 o superior
+- Git
+- VS Code con la extensión de Python
+- Windows con PowerShell (los comandos de los README usan esa sintaxis)
 
-## Requisitos
+Cada clase usa su propio entorno virtual (`.venv/`, que no se versiona) y su propio `requirements.txt`. Para reproducir una clase:
 
-- Python 3.10+
-
-## Instalación
-
-```bash
+```powershell
+git clone https://github.com/wwillich/Willich-Walter_SeminarioActualizacion.git
+cd Willich-Walter_SeminarioActualizacion\Clase_02
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-## Uso
-
-```bash
-python app.py
-```
-
-Esto levanta una interfaz web local de Gradio en `http://127.0.0.1:7860`.
-
-## Próximos pasos
-
-- [ ] Definir el objetivo final del proyecto
-- [ ] Agregar la lógica principal de la app
-- [ ] Documentar el flujo de trabajo
-
----
-
-*Este README es un punto de partida y se irá actualizando a medida que avance el proyecto.*
+Después, seguí el README de esa carpeta.
