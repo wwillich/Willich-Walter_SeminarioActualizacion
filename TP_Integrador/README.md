@@ -10,6 +10,25 @@ Construir una aplicación que lee un mensaje antes de que el bot lo conteste, de
 - **No hace:** no se conecta a WhatsApp (simula ese paso), no le contesta a la paciente y no diagnostica nada.
 - **Datos:** todos los mensajes de prueba son inventados. La aplicación no está pensada para cargar datos reales de pacientes.
 
+## Aplicación publicada
+
+[willich-walter-seminarioactualizacion.onrender.com](https://willich-walter-seminarioactualizacion.onrender.com/)
+
+> **Nota:** la aplicación usa el plan gratuito de Render, que suspende el servicio después de 15 minutos sin tráfico. Si estaba inactiva, el primer acceso puede demorar alrededor de un minuto mientras el servidor se reinicia.
+
+Por ahora está publicada la versión mínima, que devuelve el mismo mensaje que se escribe. El modelo se suma en una etapa posterior.
+
+### Configuración en Render
+
+| Campo | Valor |
+|---|---|
+| Repositorio | `wwillich/Willich-Walter_SeminarioActualizacion` |
+| Branch | `main` |
+| Root Directory | `TP_Integrador` |
+| Build Command | `pip install -r requirements.txt` |
+| Start Command | `python app.py` |
+| Instance Type | Free |
+
 ## Contenido de la carpeta
 
 | Archivo | Descripción |
