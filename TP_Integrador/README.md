@@ -14,6 +14,8 @@ Construir una aplicación que lee un mensaje antes de que el bot lo conteste, de
 
 | Archivo | Descripción |
 |---|---|
+| `app.py` | Aplicación de Gradio Blocks: un cuadro de texto, un botón y la función `analizar`, que por ahora devuelve el mismo mensaje |
+| `requirements.txt` | Dependencia mínima para el deploy: `gradio` |
 | `README.md` | Este archivo, que se amplía a medida que avanza el trabajo |
 | `BITACORA.md` | Errores encontrados durante el trabajo, con su causa y su resolución |
 | `.gitignore` | Excluye `.venv/`, `__pycache__/`, `.gradio/` y `.env` |
@@ -31,4 +33,13 @@ git clone https://github.com/wwillich/Willich-Walter_SeminarioActualizacion.git
 cd Willich-Walter_SeminarioActualizacion\TP_Integrador
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
 ```
+
+## Ejecutar la aplicación en local
+
+```powershell
+python app.py
+```
+
+La aplicación queda disponible en `http://127.0.0.1:7860`. Si la variable `PORT` está definida (como en Render), usa ese puerto.
