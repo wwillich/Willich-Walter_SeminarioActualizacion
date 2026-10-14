@@ -35,6 +35,7 @@ Por ahora está publicada la versión mínima, que devuelve el mismo mensaje que
 |---|---|
 | `app.py` | Aplicación de Gradio Blocks: un cuadro de texto, un botón y la función `analizar`, que por ahora devuelve el mismo mensaje |
 | `requirements.txt` | Dependencia mínima para el deploy: `gradio` |
+| `requirements_notebook.txt` | Dependencias para correr la notebook en local: `transformers`, `torch`, `huggingface_hub`, `pandas`, `psutil` e `ipykernel`. La aplicación publicada no las necesita |
 | `README.md` | Este archivo, que se amplía a medida que avanza el trabajo |
 | `BITACORA.md` | Errores encontrados durante el trabajo, con su causa y su resolución |
 | `.gitignore` | Excluye `.venv/`, `__pycache__/`, `.gradio/` y `.env` |
