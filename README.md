@@ -18,6 +18,8 @@ La Clase 01 no tuvo entregable técnico, por lo que el índice comienza en la Cl
 | 03 | GitHub, Codespaces y control de versiones: tres situaciones problema con Git | [Clase_03](Clase_03/) |
 | 04 | Interfaz con Gradio Blocks: componentes nuevos, función propia y enlace público con `share=True` | [Clase_04](Clase_04/) |
 | 05 | Deploy en Render de la aplicación en Gradio y de su versión equivalente en Streamlit | [Clase_05](Clase_05/) |
+| 06 | Devolución de la revisión del portafolio de un compañero de la materia | [Clase_06](Clase_06/) |
+| TP | TP integrador de la materia. Entrega de mitad de cursada | [TP_Integrador](TP_Integrador/) |
 
 ## Estado actual
 
@@ -25,6 +27,8 @@ La Clase 01 no tuvo entregable técnico, por lo que el índice comienza en la Cl
 - [x] Clase 03 — GitHub y control de versiones
 - [x] Clase 04 — Interfaz con Gradio Blocks
 - [x] Clase 05 — Deploy en Render (Gradio y Streamlit)
+- [x] Clase 06 — Devolución de la revisión del portafolio de un compañero
+- [x] TP Integrador — Entrega de mitad de cursada
 
 ## Requisitos generales
 
