@@ -19,6 +19,7 @@ La Clase 01 no tuvo entregable técnico, por lo que el índice comienza en la Cl
 | 04 | Interfaz con Gradio Blocks: componentes nuevos, función propia y enlace público con `share=True` | [Clase_04](Clase_04/) |
 | 05 | Deploy en Render de la aplicación en Gradio y de su versión equivalente en Streamlit | [Clase_05](Clase_05/) |
 | 06 | Devolución de la revisión del portafolio de un compañero de la materia | [Clase_06](Clase_06/) |
+| 10 | Del dataset al modelo exportado: entrenamiento de una regresión lineal con scikit-learn, PyTorch y Keras, y exportación del modelo | [Clase_10](Clase_10/) |
 | TP | TP integrador de la materia. Entrega de mitad de cursada | [TP_Integrador](TP_Integrador/) |
 
 ## Estado actual
@@ -28,6 +29,7 @@ La Clase 01 no tuvo entregable técnico, por lo que el índice comienza en la Cl
 - [x] Clase 04 — Interfaz con Gradio Blocks
 - [x] Clase 05 — Deploy en Render (Gradio y Streamlit)
 - [x] Clase 06 — Devolución de la revisión del portafolio de un compañero
+- [x] Clase 10 — Del dataset al modelo exportado
 - [x] TP Integrador — Entrega de mitad de cursada
 
 ## Requisitos generales
