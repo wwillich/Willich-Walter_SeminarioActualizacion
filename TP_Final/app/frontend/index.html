@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DiabeTrack | Estimación de salud</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="logo">
+            <span>DT</span>
+            <h1>DiabeTrack</h1>
+        </div>
+
+        <p>Herramienta educativa de estimación</p>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- PRESENTACIÓN -->
+        <section class="intro">
+            <span class="tag">MODELO DE MACHINE LEARNING</span>
+
+            <h2>Conocé tu estimación de progresión</h2>
+
+            <p>
+                Ingresá tus datos para obtener una estimación
+                generada por nuestro modelo de inteligencia artificial.
+            </p>
+        </section>
+
+        <!-- FORMULARIO -->
+        <section class="form-card">
+
+            <h3>Datos de entrada</h3>
+
+            <form id="prediction-form">
+
+                <!-- EDAD -->
+                <div class="form-group">
+                    <label for="age">Edad</label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        placeholder="Ej: 50"
+                        min="1"
+                        max="120"
+                        step="1"
+                        required
+                    >
+                </div>
+
+                <!-- IMC -->
+                <div class="form-group">
+                    <label for="bmi">
+                        Índice de masa corporal (BMI)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="bmi"
+                        name="bmi"
+                        placeholder="Ej: 27.1"
+                        step="any"
+                        required
+                    >
+                </div>
+
+                <!-- PRESIÓN ARTERIAL -->
+                <div class="form-group">
+                    <label for="bp">Presión arterial (BP)</label>
+
+                    <input
+                        type="number"
+                        id="bp"
+                        name="bp"
+                        placeholder="Ej: 93"
+                        step="any"
+                        required
+                    >
+                </div>
+
+                <!-- BOTÓN -->
+                <button type="submit" id="submit-button">
+                    Obtener estimación
+                </button>
+
+            </form>
+
+            <!-- ESTADO DE CARGA -->
+            <div id="loading" class="hidden" role="status" aria-live="polite">
+                Conectando con el servidor...
+            </div>
+
+            <!-- RESULTADO -->
+            <div id="result" class="hidden" aria-live="polite"></div>
+
+            <!-- ERROR -->
+            <div id="error" class="hidden" role="alert"></div>
+
+        </section>
+
+        <!-- AVISO -->
+        <section class="disclaimer">
+            <p>
+                Esta aplicación tiene fines exclusivamente educativos.
+                La estimación no constituye un diagnóstico médico
+                ni reemplaza la consulta con un profesional de salud.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>
+            DiabeTrack · Seminario de Actualización · IFTS N.º 18 · 2026
+        </p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

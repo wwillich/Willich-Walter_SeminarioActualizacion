@@ -20,7 +20,9 @@ La Clase 01 no tuvo entregable técnico, por lo que el índice comienza en la Cl
 | 05 | Deploy en Render de la aplicación en Gradio y de su versión equivalente en Streamlit | [Clase_05](Clase_05/) |
 | 06 | Devolución de la revisión del portafolio de un compañero de la materia | [Clase_06](Clase_06/) |
 | 10 | Del dataset al modelo exportado: entrenamiento de una regresión lineal con scikit-learn, PyTorch y Keras, y exportación del modelo | [Clase_10](Clase_10/) |
+| 11 | Publicación de modelos en Hugging Face: análisis de los formatos de exportación de scikit-learn, PyTorch, Keras y Transformers | [Clase_11](Clase_11/) |
 | TP | TP integrador de la materia. Entrega de mitad de cursada | [TP_Integrador](TP_Integrador/) |
+| TP Final | DiabeTrack: aplicación web con modelo de regresión lineal, API en FastAPI y frontend en HTML, CSS y JavaScript | [TP_Final](TP_Final/) |
 
 ## Estado actual
 
@@ -30,7 +32,9 @@ La Clase 01 no tuvo entregable técnico, por lo que el índice comienza en la Cl
 - [x] Clase 05 — Deploy en Render (Gradio y Streamlit)
 - [x] Clase 06 — Devolución de la revisión del portafolio de un compañero
 - [x] Clase 10 — Del dataset al modelo exportado
+- [x] Clase 11 — Publicación de modelos en Hugging Face
 - [x] TP Integrador — Entrega de mitad de cursada
+- [x] TP Final — DiabeTrack
 
 ## Requisitos generales
 

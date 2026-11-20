@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><title>Prueba CORS</title></head>
+<body>
+<h1>Prueba CORS contra la API local</h1>
+<p>Servir con <code>python -m http.server 5500</code> (origen permitido) o en otro puerto, p. ej. 5501 (origen NO permitido, debe fallar por CORS). Abrir la consola del navegador (F12).</p>
+<button id="b">POST /predecir</button>
+<pre id="out"></pre>
+<script>
+document.getElementById("b").onclick = async () => {
+  const out = document.getElementById("out");
+  try {
+    const r = await fetch("http://127.0.0.1:8000/predecir", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ age: 50, bmi: 27.1, bp: 93 }),
+    });
+    out.textContent = r.status + " " + JSON.stringify(await r.json());
+  } catch (e) {
+    out.textContent = "Error de red/CORS: " + e;
+  }
+};
+</script>
+</body>
+</html>

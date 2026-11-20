@@ -1,0 +1,260 @@
+
+/* ========================================
+   1. CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f3f6fa;
+    color: #243247;
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   2. ENCABEZADO
+======================================== */
+
+header {
+    background-color: #14263f;
+    color: white;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo span {
+    background-color: #25b7a5;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.logo h1 {
+    font-size: 23px;
+}
+
+header p {
+    color: #c4d0df;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   3. CONTENIDO PRINCIPAL
+======================================== */
+
+main {
+    max-width: 850px;
+    margin: 65px auto;
+    padding: 0 24px;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.tag {
+    display: inline-block;
+    color: #168e83;
+    background-color: #dff5f1;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.intro h2 {
+    font-size: 32px;
+    margin: 20px 0 14px;
+    color: #14263f;
+}
+
+.intro p {
+    color: #66758a;
+    line-height: 1.6;
+    max-width: 580px;
+    margin: auto;
+}
+
+
+/* ========================================
+   4. TARJETA DEL FORMULARIO
+======================================== */
+
+.form-card {
+    background-color: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(20, 38, 63, 0.07);
+    border: 1px solid #e5ebf2;
+}
+
+.form-card h3 {
+    font-size: 20px;
+    margin-bottom: 28px;
+    color: #14263f;
+}
+
+
+/* ========================================
+   5. CAMPOS DE ENTRADA
+======================================== */
+
+.form-group {
+    margin-bottom: 23px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 9px;
+    color: #34445a;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d6deea;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #25a99a;
+    box-shadow: 0 0 0 3px rgba(37, 169, 154, 0.12);
+}
+
+
+/* ========================================
+   6. BOTÓN
+======================================== */
+
+button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 9px;
+    background-color: #168f83;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #11766d;
+}
+
+button:disabled {
+    background-color: #91aaa7;
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   7. RESULTADOS, ERRORES Y CARGA
+======================================== */
+
+.hidden {
+    display: none;
+}
+
+#loading,
+#result,
+#error {
+    margin-top: 22px;
+    padding: 18px;
+    border-radius: 10px;
+    line-height: 1.5;
+}
+
+#loading {
+    background-color: #edf4fc;
+    color: #315c89;
+    text-align: center;
+}
+
+#result {
+    background-color: #e4f7f1;
+    border: 1px solid #b9e8d8;
+    color: #17664f;
+}
+
+#error {
+    background-color: #fff0ef;
+    border: 1px solid #f4c5c1;
+    color: #a6322b;
+}
+
+
+/* ========================================
+   8. AVISO Y PIE DE PÁGINA
+======================================== */
+
+.disclaimer {
+    margin-top: 25px;
+    padding: 18px;
+    background-color: #e9eef5;
+    border-radius: 10px;
+    color: #617086;
+    font-size: 12px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #8793a3;
+    font-size: 12px;
+}
+
+
+/* ========================================
+   9. ADAPTACIÓN A CELULARES
+======================================== */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    main {
+        margin: 35px auto;
+        padding: 0 16px;
+    }
+
+    .intro h2 {
+        font-size: 25px;
+    }
+
+    .form-card {
+        padding: 23px;
+    }
+
+}
