@@ -15,10 +15,6 @@ __pycache__/
 .env.*
 *.env
 
-# Archivos internos que no se publican
-/GUIA_COMPANEROS.docx
-/docs/backend_informe.md
-
 # Archivos del sistema
 .DS_Store
 Thumbs.db
