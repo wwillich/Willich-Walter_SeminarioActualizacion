@@ -1,0 +1,87 @@
+1- ¿De qué forma subiste los archivos: web, VS Code o terminal? Si usaste un token de Hugging Face, ¿qué permiso le diste y dónde quedó guardado? 
+
+¿Por qué no hay que escribirlo en el código ni subirlo a GitHub?
+
+
+
+Los subi desde la web de HF.
+
+
+
+2- Mirá la pestaña Model card de los cuatro repos. ¿Qué etiquetas aparecen arriba en cada uno y de qué parte del README.md salen?
+
+
+
+Salen del apartado de "metadata, al inicio del readme. HF identifica ese bloque de texto de esa maner al contener las filas entre "---".
+
+
+
+3- En cada repo, ¿cuál de los archivos es el modelo entrenado? ¿Cuáles necesita alguien que solo quiere usar el modelo y cuáles sirven para reproducirlo?
+
+
+
+Sklearn: model.joblib
+
+Pytorch: model.safetensors y modelo.py
+
+Keras: model.keras
+
+Transformers: config.json y model.safetensors
+
+
+
+En todos los casos, corriendo el "pip install requirements.txt", bajando los archivos del modelo y luego corriendo "python predict.py" es todo lo que necesita una persona para reproducirlo,
+
+sin entrenarlos nuevamente.
+
+
+
+4- Los repos 02 (PyTorch) y 04 (Transformers) tienen un config.json. ¿Guardan lo mismo? ¿Qué guarda cada uno?
+
+
+
+No. En el repo 02, guardan las variables de entrada del modelo, la salida (variable a predecir) y los valores a aplicar para la normalizacion o reescalamiento de las variables.
+
+En el repo 04, guarda la arquitectura de la red neuronal, las capas, sus dimensiones y las etiquetas con las que trabaja.
+
+
+
+5- ¿Por qué el repo de PyTorch necesita modelo.py y el de Keras no necesita ningún archivo parecido?
+
+
+
+Porque en keras en el propio formato de exportacion se guardan las clases, junto con el resto de los parametros, mientras que en pytorch las clases deben guardarse aparte.
+
+
+
+6- En el TP usamos InferenceClient con cardiffnlp/twitter-xlm-roberta-base-sentiment. ¿Se puede usar alguno de tus cuatro modelos de la misma forma? ¿Por qué?
+
+
+
+Por las similitud en su arquitectura (transformers para clasificacion de texto), podria llegar a ser el del repositorio 04.
+
+
+
+7- Tocá Use this model en cada repo. ¿En cuáles aparece? ¿El código que propone funcionaría con tus archivos? Si en alguno no aparece o no funciona, ¿por qué te parece que pasa?
+
+
+
+Aparece en todos excepto el de pytorch. Viendo las modelcard y los archivos, no advierto porque solo pasa esto en pytorch. Es probable que HF no tenga un metodo por defecto para
+
+cargar la arquitectura completa por defecto para pytorch. En otro formatos, como por ejemplo keras, todo lo necesario del modelo se comprime en un solo archivo, con un formato mas estandarizado.
+
+
+
+8- Si una compañera o un compañero quiere usar tu modelo de PyTorch, ¿qué tiene que tener en su código además de lo que baja del Hub?
+
+
+
+Necesita la definicion de la clase, que esta en modelo.py
+
+
+
+9- Además de Hugging Face, ¿dónde más se podría compartir un modelo? ¿Qué le faltaría a ese lugar comparado con el Hub?
+
+
+
+Solo conozco como alternativa a kaggle. No advierto que faltaria.
